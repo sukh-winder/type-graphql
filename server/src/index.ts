@@ -10,7 +10,6 @@ async function main() {
 
   app.use(express.json());
   await getApolloConfig().then(async (config) => {
-    console.log("initializing apollo server");
     console.log("initialized the apollo server successfully");
 
     const apolloServer = new ApolloServer(config);
@@ -24,7 +23,7 @@ async function main() {
 
     apolloServer.applyMiddleware({ app });
     app.listen(PORT, () => {
-      console.log(`🚀 Subscriptions ready at http://localhost:${PORT}`);
+      console.log(`🚀 Subscriptions ready at http://localhost:${PORT}/graphql`);
     });
   });
 }
